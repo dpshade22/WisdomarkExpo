@@ -1,0 +1,10 @@
+{
+  "expo": {
+    "name": "WisdomarkExpo",
+    "slug": "WisdomarkExpo",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}
