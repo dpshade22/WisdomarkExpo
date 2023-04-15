@@ -1,12 +1,20 @@
+// QuoteCard.js
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { TouchableOpacity, Text, StyleSheet } from 'react-native';
+import { sharedStyles } from '../styles';
+import * as Font from 'expo-font';
+import { useFonts, Raleway_400Regular } from '@expo-google-fonts/raleway';
 
-const QuoteCard = ({ quote }) => {
+const QuoteCard = ({ quote, navigation }) => {
+    const handlePress = () => {
+        navigation.navigate('CommentThread', { quote });
+    };
+
     return (
-        <View style={styles.card}>
+        <TouchableOpacity style={sharedStyles.neumorphicCard} onPress={handlePress}>
             <Text style={styles.text}>{quote.text}</Text>
             <Text style={styles.author}>{quote.author}</Text>
-        </View>
+        </TouchableOpacity>
     );
 };
 
@@ -23,11 +31,13 @@ const styles = StyleSheet.create({
         elevation: 5,
     },
     text: {
+        fontFamily: 'Raleway_400Regular',
         fontSize: 18,
         fontWeight: '500',
         marginBottom: 8,
     },
     author: {
+        fontFamily: 'Raleway_400Regular',
         fontSize: 14,
         fontWeight: '400',
         textAlign: 'right',
